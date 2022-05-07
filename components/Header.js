@@ -13,10 +13,10 @@ import { HomeIcon } from "@heroicons/react/solid";
 
 function Header() {
   return (
-    <div className="shadow-sm border-b bg-white sticky top-0 z-50">
-      <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
+    <div className="shadow-sm border-b bg-white sticky top-0 z-50 h-16">
+      <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto h-16">
         {/* left */}
-        <div className="relative hidden lg:inline-grid h-24 w-24 cursor-pointer">
+        <div className="relative hidden lg:inline-grid h-16 w-24 cursor-pointer">
           <Image
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2880px-Instagram_logo.svg.png"
             layout="fill"
@@ -35,7 +35,7 @@ function Header() {
 
         {/* Middle */}
         <div className="max-w-xs">
-          <div className="relative mt-1 md:mt-4 p-3 rounded-md">
+          <div className="relative p-3 rounded-md">
             <div className="absolute inset-y-0 pl-3 flex items-center pointer-events-none">
               <SearchIcon className="h-5 w-5 text-gray-500" />
             </div>
