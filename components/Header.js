@@ -22,6 +22,7 @@ function Header() {
             layout="fill"
             alt="insta logo"
             objectFit="contain"
+            priority
           />
         </div>
         <div className="relative w-10 lg:hidden flex-shrink-0 cursor-pointer">

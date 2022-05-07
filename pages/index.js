@@ -6,7 +6,7 @@ import Feed from "./../components/Feed";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-gray-50 h-screen">
       <Head>
         <title>Instagram Clone</title>
         <link rel="icon" href="/favicon.ico" />
