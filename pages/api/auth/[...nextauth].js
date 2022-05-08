@@ -8,4 +8,15 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+
+  pages: {
+    signIn: "/auth/signin",
+  },
+
+  // Basic Login Page By NextAuth
+  // theme: {
+  //   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2880px-Instagram_logo.svg.png",
+  //   brandColor: "#F13287",
+  //   colorSchema: "auto",
+  // },
 });

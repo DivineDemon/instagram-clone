@@ -10,8 +10,11 @@ import {
   MenuIcon,
 } from "@heroicons/react/outline";
 import { HomeIcon } from "@heroicons/react/solid";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 function Header() {
+  const { data: session, status } = useSession();
+
   return (
     <div className="shadow-sm border-b bg-white sticky top-0 z-50 h-16">
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto h-16">
@@ -52,21 +55,28 @@ function Header() {
         <div className="flex items-center justify-end space-x-4">
           <HomeIcon className="navBtn" />
           <MenuIcon className="h-6 md:hidden cursor-pointer" />
-          <div className="relative navBtn">
-            <PaperAirplaneIcon className="navBtn rotate-45" />
-            <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">
-              3
-            </div>
-          </div>
-          <PlusCircleIcon className="navBtn" />
-          <UserGroupIcon className="navBtn" />
-          <HeartIcon className="navBtn" />
+          {session ? (
+            <>
+              <div className="relative navBtn">
+                <PaperAirplaneIcon className="navBtn rotate-45" />
+                <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">
+                  3
+                </div>
+              </div>
+              <PlusCircleIcon className="navBtn" />
+              <UserGroupIcon className="navBtn" />
+              <HeartIcon className="navBtn" />
 
-          <img
-            src="https://lh3.googleusercontent.com/ogw/ADea4I51tAioLLXaORYgQAYasUYcPAt2i1OJcluPIn-SwdI=s32-c-mo"
-            alt="user-profile"
-            className="h-10 rounded-full cursor-pointer"
-          />
+              <img
+                onClick={signOut}
+                src={session.user.image}
+                alt="user-profile"
+                className="h-10 w-10 rounded-full cursor-pointer"
+              />
+            </>
+          ) : (
+            <button onClick={signIn}>Sign In</button>
+          )}
         </div>
       </div>
     </div>
