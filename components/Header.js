@@ -12,9 +12,12 @@ import {
 import { HomeIcon } from "@heroicons/react/solid";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { modalState } from './../atoms/modalAtom';
 
 function Header() {
   const { data: session, status } = useSession();
+  const [open, setOpen] = useRecoilState(modalState);
   const router = useRouter();
 
   return (
