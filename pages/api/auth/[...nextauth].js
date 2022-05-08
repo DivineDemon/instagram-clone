@@ -15,6 +15,18 @@ export default NextAuth({
     signIn: "/auth/signin",
   },
 
+  callbacks: {
+    async session({ session, token, user }) {
+      session.user.username = session.user.name
+        .split(" ")
+        .join("")
+        .toLocaleLowerCase();
+
+      session.user.uid = token.sub;
+      return session;
+    },
+  },
+
   // Basic Login Page By NextAuth
   // theme: {
   //   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2880px-Instagram_logo.svg.png",
