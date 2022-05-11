@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.1",
+    "@headlessui/react": "^0.0.0-insiders.bf0d112",
     "@heroicons/react": "^1.0.6",
     "@tailwindcss/forms": "^0.5.1",
     "firebase": "^9.8.0",
